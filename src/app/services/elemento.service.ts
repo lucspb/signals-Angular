@@ -16,7 +16,7 @@ export class ElementoService {
   elementoSelecionado = signal< Elemento | null> (null);
   temperatura = signal<any>(25);
   estadoFisico = signal<string>('');
-  favoritos = signal<Elemento[]>([])
+  favoritos = signal<Elemento[]>([]);
 
   elementos: Elemento[] = [
     { nome: 'Hidrogênio', simbolo: 'H', numeroMassa: 1, pontoFusao: -259, pontoEbulicao: -253 },
@@ -67,16 +67,16 @@ export class ElementoService {
   }
 
   obterElementoSelecionado() {
-    return this.elementoInfo
+    return this.elementoInfo;
   }
 
   adicionarFavorito(elemento: Elemento) {
-    this.favoritos.update((fav) => [... fav, elemento])
-
+    this.favoritos.update((fav) => [...fav, elemento]);
+    console.log(elemento)
   }
-
-  removerFavoritos(elemento: Elemento) {
-    this.favoritos.update((fav) => 
+  
+  removerFavorito(elemento: Elemento) {
+    this.favoritos.update((fav) =>
       fav.filter((e) => e !== elemento)
     )
   }
